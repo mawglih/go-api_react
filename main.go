@@ -50,6 +50,7 @@ func main() {
 	router.HandleFunc("/books", updateBook).Methods("PUT")
 	router.HandleFunc("/books/{id}", removeBook).Methods("DELETE")
 
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
 
 func getBooks(w http.ResponseWriter, r *http.Request) {
